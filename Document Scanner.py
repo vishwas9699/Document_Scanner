@@ -1,17 +1,13 @@
 import cv2
 import numpy as np
- 
- 
-########################################################################
+
 webCamFeed = True
 pathImage = "Test Image.jpg"
 cap = cv2.VideoCapture("http://192.168.43.1:8080/video")
 cap.set(10,160)
 heightImg = 640
 widthImg  = 480
-########################################################################
- 
-## TO STACK ALL THE IMAGES IN ONE WINDOW
+
 def stackImages(imgArray,scale,lables=[]):
     rows = len(imgArray)
     cols = len(imgArray[0])
@@ -61,8 +57,7 @@ def reorder(myPoints):
     myPointsNew[2] = myPoints[np.argmax(diff)]
  
     return myPointsNew
- 
- 
+  
 def biggestContour(contours):
     biggest = np.array([])
     max_area = 0
@@ -75,6 +70,7 @@ def biggestContour(contours):
                 biggest = approx
                 max_area = area
     return biggest,max_area
+
 def drawRectangle(img,biggest,thickness):
     cv2.line(img, (biggest[0][0][0], biggest[0][0][1]), (biggest[1][0][0], biggest[1][0][1]), (255, 0, 0), thickness)
     cv2.line(img, (biggest[0][0][0], biggest[0][0][1]), (biggest[2][0][0], biggest[2][0][1]), (255, 0, 0), thickness)
@@ -91,8 +87,7 @@ def initializeTrackbars(intialTracbarVals=0):
     cv2.resizeWindow("Trackbars", 360, 240)
     cv2.createTrackbar("Threshold1", "Trackbars", 200,255, nothing)
     cv2.createTrackbar("Threshold2", "Trackbars", 200, 255, nothing)
- 
- 
+  
 def valTrackbars():
     Threshold1 = cv2.getTrackbarPos("Threshold1", "Trackbars")
     Threshold2 = cv2.getTrackbarPos("Threshold2", "Trackbars")
@@ -100,14 +95,13 @@ def valTrackbars():
     return src
 
 
-########################################################################
 initializeTrackbars()
 count=0
  
 while True:
     if webCamFeed:success, img = cap.read()
     else:img = cv2.imread(pathImage)
-    img = cv2.resize(img, (widthImg, heightImg)) # RESIZE IMAGE
+    img = cv2.resize(img, (widthImg, heightImg))
     imgBlank = np.zeros((heightImg,widthImg, 3), np.uint8) # CREATE A BLANK IMAGE FOR TESTING DEBUGING IF REQUIRED
     imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # CONVERT IMAGE TO GRAY SCALE
     imgBlur = cv2.GaussianBlur(imgGray, (5, 5), 1) # ADD GAUSSIAN BLUR
