@@ -148,8 +148,8 @@ while True:
                       [imgBlank, imgBlank, imgBlank, imgBlank])
  
     # LABELS FOR DISPLAY
-    lables = [["Original","Gray","Threshold","Contours"],
-              ["Biggest Contour","Warp Prespective","Warp Gray","Adaptive Threshold"]]
+    #lables = [["Original","Gray","Threshold","Contours"],
+              #["Biggest Contour","Warp Prespective","Warp Gray","Adaptive Threshold"]]
  
     stackedImage =stackImages(imageArray,0.5)
     cv2.imshow("Result",stackedImage)
