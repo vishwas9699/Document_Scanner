@@ -10,7 +10,7 @@ The scanner takes a poorly scanned image, finds the corners of the document, app
 * Python
 * OpenCV
 
-## Building a document scanner with OpenCV can be accomplished in just three simple steps:
+## Building a document scanner with OpenCV can be accomplished in just six simple steps:
 
 * Step 1: Caputre the image.
 * Step 2: Apply Thresold.
