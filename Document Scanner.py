@@ -3,7 +3,7 @@ import numpy as np
 
 webCamFeed = True
 pathImage = "Test Image.jpg"
-cap = cv2.VideoCapture("http://192.168.43.1:8080/video")
+cap = cv2.VideoCapture("http://http://192.168.43.1:8080/video")
 cap.set(10,160)
 heightImg = 640
 widthImg  = 480
@@ -148,8 +148,8 @@ while True:
                       [imgBlank, imgBlank, imgBlank, imgBlank])
  
     # LABELS FOR DISPLAY
-    #lables = [["Original","Gray","Threshold","Contours"],
-              #["Biggest Contour","Warp Prespective","Warp Gray","Adaptive Threshold"]]
+    lables = [["Original","Gray","Threshold","Contours"],
+              ["Biggest Contour","Warp Prespective","Warp Gray","Adaptive Threshold"]]
  
     stackedImage =stackImages(imageArray,0.5)
     cv2.imshow("Result",stackedImage)
