@@ -122,7 +122,7 @@ while True:
     biggest, maxArea = biggestContour(contours) # FIND THE BIGGEST CONTOUR
     if biggest.size != 0:
         biggest=reorder(biggest)
-        cv2.drawContours(imgBigContour, biggest, -1, (0, 0, 255), 20) # DRAW THE BIGGEST CONTOUR
+        cv2.drawContours(imgBigContour, biggest, -1, (255, 0, 0), 20) # DRAW THE BIGGEST CONTOUR
         imgBigContour =drawRectangle(imgBigContour,biggest,3)
         pts1 = np.float32(biggest) # PREPARE POINTS FOR WARP
         pts2 = np.float32([[0, 0],[widthImg, 0], [0, heightImg],[widthImg, heightImg]]) # PREPARE POINTS FOR WARP
@@ -140,16 +140,16 @@ while True:
         imgAdaptiveThre=cv2.medianBlur(imgAdaptiveThre,3)
  
         # Image Array for Display
-        imageArray = ([img,imgGray,imgThreshold,imgContours],
-                      [imgBigContour,imgWarpColored, imgWarpGray,imgAdaptiveThre])
+        imageArray = ([img,imgThreshold,imgContours],
+                      [imgBigContour,imgWarpColored,imgAdaptiveThre])
  
     else:
-        imageArray = ([img,imgGray,imgThreshold,imgContours],
-                      [imgBlank, imgBlank, imgBlank, imgBlank])
+        imageArray = ([img,imgThreshold,imgContours],
+                      [imgBlank, imgBlank, imgBlank])
  
     # LABELS FOR DISPLAY
-    lables = [["Original","Gray","Threshold","Contours"],
-              ["Biggest Contour","Warp Prespective","Warp Gray","Adaptive Threshold"]]
+    lables = [["Original","Threshold","Contours"],
+              ["Biggest Contour","Warp Prespective","Adaptive Threshold"]]
  
     stackedImage =stackImages(imageArray,0.5,lables=[])
     cv2.imshow("Result",stackedImage)
