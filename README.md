@@ -12,7 +12,9 @@ The scanner takes a poorly scanned image, finds the corners of the document, app
 
 ## Building a document scanner with OpenCV can be accomplished in just three simple steps:
 
-Step 1: Caputre the image
-Step 1: Detect edges.
-Step 2: Use the edges in the image to find the contour (outline) representing the piece of paper being scanned.
-Step 3: Apply a perspective transform to obtain the top-down view of the document.
+* Step 1: Caputre the image.
+* Step 2: Apply Thresold.
+* Step 3: Find Contours.
+* Step 4: Use the edges in the image to find the biggest contour (outline) representing the piece of paper being scanned.
+* Step 5: Apply a perspective transform to obtain the top-down view of the document.
+* Step 6: Apply a Adaptive Threshold to clean up Scanned image.
