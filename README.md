@@ -18,3 +18,7 @@ The scanner takes a poorly scanned image, finds the corners of the document, app
 * Step 4: Use the edges in the image to find the biggest contour (outline) representing the piece of paper being scanned.
 * Step 5: Apply a perspective transform to obtain the top-down view of the document.
 * Step 6: Apply a Adaptive Threshold to clean up Scanned image.
+
+## How to save Document?
+
+Just press "S" button on keyboard when we get scanned image.
