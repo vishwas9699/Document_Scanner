@@ -24,3 +24,4 @@ The scanner takes a poorly scanned image, finds the corners of the document, app
 Just press "S" button on keyboard when we get scanned image.
 
 ## Scanned Image.
+<img src="https://github.com/vishwas9699/Smart_Intruder_Detection_Surveillance_System/blob/master/Alert%20Via%20Twilio%20API.jpg">
